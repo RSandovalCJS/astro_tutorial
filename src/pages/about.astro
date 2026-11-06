@@ -1,5 +1,20 @@
 ---
+// Este espacio se llama frontmatter. Aquie podemos definir variables, constantes en js que podemos usar en nuestra página.
+const pageTitle = "Sobre Mi";
 
+const identity = {
+  firstname: "Rodrigo",
+  country: "Chile",
+  occupation: "Escritor técnico",
+  hobbies: ["fotografía", "observación de aves", "Universidad de Chile"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Node.js"];
+
+// constantes de prueba para renderización condicional de elementos
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="es">
@@ -16,8 +31,7 @@
     <a href="/about">Sobre mi</a>&nbsp;&nbsp; <!-- &nbsp;&nbsp; non-breaking space para separación rápida de 2 espacios -->
     <a href="/blog">Mi Blog</a>
 
-    <h1>Mi sitio Astro</h1>
-    <h1>Sobre Mi</h1>
+    <h1>{pageTitle}</h1>
     <h2>
       Hola! Soy Rodrigo y ese sitio blog lo creé siguiendo el tutorial Astro!
     </h2>
@@ -31,5 +45,35 @@
       Este sitio se irá actualizando a medida que vaya completando más partes
       del tutorial, ¡asi que no dejes de visitarlo para ver cómo va mi viaje!
     </p>
+
+    <p>He aquí algunos datos sobre mi:</p>
+    <ul>
+      <li>Me llamo {identity.firstname}.</li>
+      <li>
+        Vivo en {identity.country} y trabajando como {identity.occupation}.
+      </li>
+      {
+        identity.hobbies.length >= 2 && (
+          <li>
+            Dos de mis aficiones son: {identity.hobbies[0]} y{" "}
+            {identity.hobbies[1]}
+          </li>
+        )
+      }
+      <p>Mis habilidades son:</p>
+      <ul>
+        {skills.map((skill) => <li>{skill}</li>)}
+      </ul>
+    </ul>
+
+    {happy && <p>¡Estoy feliz de aprender Astro!</p>}
+    {finished && <p>¡He terminado este tutorial!</p>}
+    {
+      goal === 3 ? (
+        <p>Mi objetivo es terminar en 3 días</p>
+      ) : (
+        <p>Mi objetivo no son 3 días</p>
+      )
+    }
   </body>
 </html>

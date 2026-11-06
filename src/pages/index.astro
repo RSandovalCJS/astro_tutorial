@@ -1,5 +1,6 @@
 ---
-
+// Este espacio se llama frontmatter. Aquie podemos definir variables, constantes en js que podemos usar en nuestra página.
+const PageTitle = "Mi Sitio Astro";
 ---
 
 <html lang="es">
@@ -16,6 +17,6 @@
     <a href="/about">Sobre mi</a>&nbsp;&nbsp; <!-- &nbsp;&nbsp; non-breaking space para separación rápida de 2 espacios -->
     <a href="/blog">Mi Blog</a>
 
-    <h1>Mi sitio Astro</h1>
+    <h1>{PageTitle}</h1>
   </body>
 </html>
