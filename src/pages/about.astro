@@ -1,5 +1,9 @@
 ---
 // Este espacio se llama frontmatter. Aquie podemos definir variables, constantes en js que podemos usar en nuestra página.
+// importaciones
+import "../styles/global.css";
+
+// declaración de constantes
 const pageTitle = "Sobre Mi";
 
 const identity = {
@@ -15,6 +19,11 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Node.js"];
 const happy = true;
 const finished = false;
 const goal = 3;
+
+// definición de variable css
+const skillColor = "crimson";
+const fontWeight = "lighter";
+const textCase = "uppercase";
 ---
 
 <html lang="es">
@@ -32,6 +41,19 @@ const goal = 3;
     <a href="/blog">Mi Blog</a>
 
     <h1>{pageTitle}</h1>
+    <!-- definimos la variable css que contendrá el valor de la variable JS SkillColor del frontmmatter -->
+    <style define:vars={{ skillColor, fontWeight, textCase }}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+      .skill {
+        color: var(--skillColor);
+        font-weight: var(--fontWeight);
+        text-transform: var(--textCase);
+      }
+    </style>
+
     <h2>
       Hola! Soy Rodrigo y ese sitio blog lo creé siguiendo el tutorial Astro!
     </h2>
@@ -62,7 +84,7 @@ const goal = 3;
       }
       <p>Mis habilidades son:</p>
       <ul>
-        {skills.map((skill) => <li>{skill}</li>)}
+        {skills.map((skill) => <li class="skill">{skill}</li>)}
       </ul>
     </ul>
 

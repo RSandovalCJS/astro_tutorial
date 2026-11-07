@@ -1,0 +1,39 @@
+/*propiedad:valor*/
+
+html{
+    /* background-color: #f1f5f9; */
+    background-color: #809bce;
+    font-family: sans-serif;
+}
+
+body{
+    margin: 0 auto;         /* para repartir el espacio sobrante en partes iguales a la izq y der (auto), centrando la columna del body en medio de la pantalla */
+    width: 100%;            /* el body usará el 100% del ancho mientras la pantalla no supere los 80ch (definidos en max-width) de ahi en adelante será una columan centrada en la pantalla */
+    max-width: 80ch;        /* ancho maximo del body (aprox. 80 caracteres por linea) */
+    padding: 1rem;          /* aprox 16px de bordes interiores para darle respiro fijo y las letras no toquen los bordes físicos */
+    line-height: 1.5;       /* define el interlineado o separación vertical entre una linea y la de abajo. */
+    color: white;
+}
+
+/* el asterisco aqui funciona como selector universal. Aplica a absolutamente todos los elementos de la página */
+*{
+    box-sizing: border-box; /* aseguramos que el calculo del ancho total sea como max. el indicado en la propiedad width.  */
+}
+
+/* 1rem (root EM) o tamaño de la letra base de la raíz <html> es 16 px*/
+h1{
+    margin:1rem 0;          /* margen 1rem = 16px de separación vertical (arriba y abajo) y 0 en izquierda y derecha */
+    font-size: 2.5rem;      /* 2.5 x 16px = 40px */
+    color: purple;
+}
+
+/* Con esta configuración sobre el selector para la etiqueta ancla se puede modificar el color del texto */
+a {
+  color: #00539f; /* o el color que quieras, ej: crimson, green, etc. */
+  text-decoration: none; /* Opcional: esto le quita la línea de subrayado */
+}
+
+/* con esto podemos cambiar el color cuando pasamos el mouse sobre los hipervinculos */
+a:hover {
+  color: orange;
+}
