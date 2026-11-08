@@ -1,6 +1,14 @@
 ---
+// ESTE ESPACIO SE LLAMA FRONTMATTER. AQUÍ PODEMOS DEFINIR VARIABLES, CONSTANTES, IMPORTAR COMPONENTES ASTRO, PLANTILLAS CSS
+
+//importanción de componentes astro
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+
+// importación de estillos .css
 import "../styles/global.css";
-// Este espacio se llama frontmatter. Aquie podemos definir variables, constantes en js que podemos usar en nuestra página.
+
+// declaración de constantes / variables
 const PageTitle = "Mi Sitio Astro";
 ---
 
@@ -14,10 +22,10 @@ const PageTitle = "Mi Sitio Astro";
     <title>Astro</title>
   </head>
   <body>
-    <a href="/">Inicio</a>&nbsp;&nbsp; <!-- &nbsp;&nbsp; non-breaking space para separación rápida de 2 espacios -->
-    <a href="/about">Sobre mi</a>&nbsp;&nbsp; <!-- &nbsp;&nbsp; non-breaking space para separación rápida de 2 espacios -->
-    <a href="/blog">Mi Blog</a>
+    <Header />
 
     <h1>{PageTitle}</h1>
+
+    <Footer />
   </body>
 </html>

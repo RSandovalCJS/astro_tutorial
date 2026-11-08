@@ -1,0 +1,21 @@
+---
+// En JavaScript esto se llama desestructuración. Es simplemente un atajo para no tener que escribir:
+// const platform = Astro.props.platform;
+// const username = Astro.props.username;
+// Astro.pops es un objeto especial que guarda los atributos que se le pasaron desde el Footer.
+const { platform, username } = Astro.props;
+---
+
+<!-- Aqui va el enlace que queremos usar en el footer y se llenará con las
+propiedades platform y username que se traigan de la pagina que contenga el
+Footer. -->
+<a href={`https://www.${platform}.com/${username}`}>{platform}</a>
+
+<style>
+  a {
+    padding: 0.5rem 1rem;
+    color: white;
+    background-color: #4c1d95;
+    text-decoration: none;
+  }
+</style>

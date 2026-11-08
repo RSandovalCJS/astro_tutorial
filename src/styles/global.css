@@ -37,3 +37,49 @@ a {
 a:hover {
   color: orange;
 }
+
+/* clase para los enlaces de las publicaciones */
+.post-link {
+  color: darkgreen;
+}
+
+
+/* estilos de la barra de navegación*/
+/* siempre se personaliza pensando en pantallas pequeñas y luego las reglas @media se utilizan para re-escribir las plantillas pensando en pantallas grandes */
+
+.nav-links {
+  width: 100%;  /* Hace que la caja que envuelve los enlaces ocupe todo el ancho disponible de la pantalla */
+  margin: 0;    /* Elimina cualquier margen exterior para que no quede desplazado. */
+}
+
+.nav-links a {
+  display: block;                   /* la opción block hace que cada enlace <a> ocupe su propio reglon apilandose verticalmente y no uno al lado del otro (inline) */
+  text-align: center;               /* centra el texto de cada reglón al centro. */
+  padding: 10px 0;                  /* agrega 10px de relleno arriba y abajo y 0 a los lados */
+  text-decoration: none;            /* quita la linea de subyarado típica de los enlaces */
+  font-size: 1.2rem;                /* agranda un poco la letra (20% mas que el texto normal - 16px) */
+  font-weight: bold;                /* letra en negrita */
+  text-transform: uppercase;        /* transforma todo el texto a MAYUSCULA */
+  color: #0d0950;                 /* texto color azul marino oscuro */                  
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  background-color: #ff9776;                /* cambio color del fondo cuando pasas con el mouse sobre el enlace y cuando se selecciona navegando con tecla Tab */
+}
+
+/* El cambio a pantalla grande pantallas desde 636px y mas grandes */
+@media screen and (min-width: 636px) {
+  .nav-links {
+    margin-left: 5em;                       /* empuja el menú hacia la derecha 5em 5 veces el tamaño de letra */
+    display: block;                         /* */
+    position: static;
+    width: auto;                            /* ya no fuerza a ocupar el 100%, sino solo lo que mida sus enlaces */
+    background: none;
+  }
+
+  .nav-links a {
+    display: inline-block;                  /* bloque que se ponen uno al lado del otro horizontalmente */
+    padding: 15px 20px;                     /* 15px de aire arriba y abajo, 20px a ambos lados para las palabras no se peguen entre sí*/
+  }
+}
