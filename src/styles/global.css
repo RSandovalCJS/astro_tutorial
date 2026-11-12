@@ -46,10 +46,22 @@ a:hover {
 
 /* estilos de la barra de navegación*/
 /* siempre se personaliza pensando en pantallas pequeñas y luego las reglas @media se utilizan para re-escribir las plantillas pensando en pantallas grandes */
+/* por lo tanto, todo lo que esta antes del @media, se usará para personalizar la pagina en formato de pantallas pequeñas (ancho <= 636px) */
+
+.menu{
+    background-color: #0d0950;      /* color del botón menu */
+    border:none;                      /* botón sin bordes */
+    color: #fff;                    /* color tipografía */
+    font-size: 1.2rem;                /* tamaño fuente */  
+    font-weight:bold;                 /* letra negrita */
+    padding: 5px 10px;                /* 5px espacios arriba y abajo, 10px laterales */
+}
+
 
 .nav-links {
-  width: 100%;  /* Hace que la caja que envuelve los enlaces ocupe todo el ancho disponible de la pantalla */
-  margin: 0;    /* Elimina cualquier margen exterior para que no quede desplazado. */
+  width: 100%;                          /* Hace que la caja que envuelve los enlaces ocupe todo el ancho disponible de la pantalla */
+  display: none;                        /* Con esto ocultamos por completo las opciones del menú "Inicio", "Sobre Mi", "Mi Blog" hasta que se presione el botón Menu */
+  margin: 0;                            /* Elimina cualquier margen exterior para que no quede desplazado. */
 }
 
 .nav-links a {
@@ -68,11 +80,20 @@ a:hover {
   background-color: #ff9776;                /* cambio color del fondo cuando pasas con el mouse sobre el enlace y cuando se selecciona navegando con tecla Tab */
 }
 
-/* El cambio a pantalla grande pantallas desde 636px y mas grandes */
+
+/* :has() funciona como un detecto o pregunta condicional "Si el contenedor tiene adentro esto .. entonces aplica este estilo (en este caso sobre .nav-links */
+
+/* unset desactiva el valor que la propiedad tenga en ese momento,  */
+:has(.menu[aria-expanded="true"]) .nav-links {
+  display: unset;
+}
+
+/* El cambio a pantalla grande pantallas desde 636px y mas */
+
 @media screen and (min-width: 636px) {
   .nav-links {
     margin-left: 5em;                       /* empuja el menú hacia la derecha 5em 5 veces el tamaño de letra */
-    display: block;                         /* */
+    display: block;                         /* vuelve a mostrar las opciones "INICIO, SOBRE Mí, Mí BLOG" como un bloque visible de forma permanente */
     position: static;
     width: auto;                            /* ya no fuerza a ocupar el 100%, sino solo lo que mida sus enlaces */
     background: none;
@@ -82,4 +103,9 @@ a:hover {
     display: inline-block;                  /* bloque que se ponen uno al lado del otro horizontalmente */
     padding: 15px 20px;                     /* 15px de aire arriba y abajo, 20px a ambos lados para las palabras no se peguen entre sí*/
   }
-}
+
+.menu {
+    display: none;                          /* oculta el botón Menu para pantallas grandes o anchos superior a los 636px */
+}}
+
+

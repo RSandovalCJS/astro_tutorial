@@ -1,5 +1,6 @@
 ---
 // ESTE ESPACIO SE LLAMA FRONTMATTER. AQUÍ PODEMOS DEFINIR VARIABLES, CONSTANTES, IMPORTAR COMPONENTES ASTRO, PLANTILLAS CSS
+// EL SCRIPT O CÓDIGO JAVASCRIPT QUE SE ESCRIBA ACA SE EJECUTARÁ MIENTRAS ASTRO ESTÉ CONSTRUYENDO EL SITIO, ES DECIR, ANTES DE QUE NINGÚN USUARIO ABRA LA PÁGINA.
 
 //importanción de componentes astro
 import Footer from "../components/Footer.astro";
@@ -27,5 +28,9 @@ const PageTitle = "Mi Sitio Astro";
     <h1>{PageTitle}</h1>
 
     <Footer />
+    <!-- dentro de estas etiquetas se importan los script que se usan para dar interactividad en vivo despues de que la página ya cargó en el navegador del usuario. -->
+    <script>
+      import "../scripts/menu.js";
+    </script>
   </body>
 </html>
