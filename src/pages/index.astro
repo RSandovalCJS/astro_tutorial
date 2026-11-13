@@ -2,35 +2,25 @@
 // ESTE ESPACIO SE LLAMA FRONTMATTER. AQUÍ PODEMOS DEFINIR VARIABLES, CONSTANTES, IMPORTAR COMPONENTES ASTRO, PLANTILLAS CSS
 // EL SCRIPT O CÓDIGO JAVASCRIPT QUE SE ESCRIBA ACA SE EJECUTARÁ MIENTRAS ASTRO ESTÉ CONSTRUYENDO EL SITIO, ES DECIR, ANTES DE QUE NINGÚN USUARIO ABRA LA PÁGINA.
 
+/* IMPORTACIONES SIN PLANTILLA 
 //importanción de componentes astro
 import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import Header from "../components/Header.astro"; 
 
 // importación de estillos .css
 import "../styles/global.css";
 
+const PageTitle = "Mi Sitio Astro"; */
+
+//importanción de componentes astro (en este caso la plantilla principal para la estructura html del blog)
+import BaseLayout from "../layouts/BaseLayout.astro";
+
 // declaración de constantes / variables
-const PageTitle = "Mi Sitio Astro";
+const pageTitle = "Página de inicio (escrito en index.astro)";
 ---
 
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <Header />
-
-    <h1>{PageTitle}</h1>
-
-    <Footer />
-    <!-- dentro de estas etiquetas se importan los script que se usan para dar interactividad en vivo despues de que la página ya cargó en el navegador del usuario. -->
-    <script>
-      import "../scripts/menu.js";
-    </script>
-  </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <h2>
+    Mi impresionante subtitulo de blog añadido a traves de una etiqueta slot
+  </h2>
+</BaseLayout>
